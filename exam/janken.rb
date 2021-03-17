@@ -2,15 +2,16 @@ require 'byebug'
 # プレイヤー(自分)に「0 ~ 2」を入力させるロジックを書きます。
 class Player
   def hand
-    puts "0:ぐー 1:ちょき 2:ぱー (enter = グーですよ)"
-    player_hand = gets.to_i
+    puts "0:ぐー 1:ちょき 2:ぱー"
+    player_hand = gets.chomp
+    puts player_hand
     while true
-      if player_hand < 0 || player_hand > 2
+      if player_hand == "0" || player_hand == "2" || player_hand == "1"
+        return player_hand.to_i
+      else
         puts "グーチョキパー出して!!!"
         puts "0:ぐー 1:ちょき 2:ぱー"
-        player_hand = gets.to_i
-      else
-        return player_hand
+        player_hand = gets.chomp
       end
     end
   end
